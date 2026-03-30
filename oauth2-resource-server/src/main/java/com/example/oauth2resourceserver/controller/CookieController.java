@@ -20,13 +20,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/cookie")
 @Slf4j
 public class CookieController {
 
     private final List<CookieDto> cookies = new ArrayList<>();
 
-    @PostMapping("/cookie")
+    @PostMapping
     public ResponseEntity<CookieDto> createCookie(
             Principal principal,
             Authentication authentication,
@@ -48,12 +48,12 @@ public class CookieController {
         return ResponseEntity.ok(cookieDto);
     }
 
-    @GetMapping("/cookies")
+    @GetMapping
     public ResponseEntity<List<CookieDto>> getCookie() {
         return ResponseEntity.ok(cookies);
     }
 
-    @DeleteMapping("/cookies")
+    @DeleteMapping
     public ResponseEntity<Void> deleteAllCookies() {
         cookies.clear();
         return ResponseEntity.ok(null);
