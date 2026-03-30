@@ -1,0 +1,339 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: learning-keycloak
+meta:
+  id: wrk_dbb2ac41aafb4695b5f2bbb3e8038c6e
+  created: 1774819587417
+  modified: 1774819587417
+  description: ""
+collection:
+  - url: "{{ _.keycloakBaseUrl }}/realms/myrealm/protocol/openid-connect/token"
+    name: Token endpoint
+    meta:
+      id: req_5010bc9a29db4b9596d99189a2407ce1
+      created: 1774818099129
+      modified: 1774892762244
+      isPrivate: false
+      description: ""
+      sortKey: -1774778159697
+    method: POST
+    body:
+      mimeType: application/x-www-form-urlencoded
+      params:
+        - name: client_id
+          value: myclient
+          description: ""
+          disabled: false
+        - name: grant_type
+          value: password
+          description: ""
+          disabled: false
+        - name: username
+          value: "{{ _.username }}"
+          description: ""
+          disabled: false
+        - name: password
+          value: "{{ _.password }}"
+          description: ""
+          disabled: false
+    headers:
+      - name: Content-Type
+        value: application/x-www-form-urlencoded
+      - name: User-Agent
+        value: insomnia/12.4.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.keycloakBaseUrl }}/realms/myrealm/protocol/openid-connect/auth"
+    name: Authorization endpoint
+    meta:
+      id: req_44b6eeea3fed481db2a3afccb09469b9
+      created: 1774818578283
+      modified: 1774825977652
+      isPrivate: false
+      description: ""
+      sortKey: -1774818578283
+    method: POST
+    body:
+      mimeType: application/x-www-form-urlencoded
+      params:
+        - name: client_id
+          value: myclient
+          description: ""
+          disabled: false
+        - name: response_type
+          value: code
+          description: ""
+          disabled: false
+    headers:
+      - name: Content-Type
+        value: application/x-www-form-urlencoded
+      - name: User-Agent
+        value: insomnia/12.4.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.keycloakBaseUrl }}/realms/myrealm/.well-known/openid-configuration"
+    name: Configuration endpoint
+    meta:
+      id: req_f61db911557b4be5aefd62393352a29e
+      created: 1774819938725
+      modified: 1774825972769
+      isPrivate: false
+      description: ""
+      sortKey: -1774819938725
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.4.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.keycloakBaseUrl }}/realms/myrealm/protocol/openid-connect/token"
+    name: Token refresh endpoint
+    meta:
+      id: req_2b3510c14ed340a69f4991d61c8cf57b
+      created: 1774820411204
+      modified: 1774892926039
+      isPrivate: false
+      description: ""
+      sortKey: -1774778159597
+    method: POST
+    body:
+      mimeType: application/x-www-form-urlencoded
+      params:
+        - name: client_id
+          value: myclient
+          description: ""
+          disabled: false
+        - name: grant_type
+          value: refresh_token
+          description: ""
+          disabled: false
+        - name: refresh_token
+          value: "{{ _.refreshToken }}"
+          description: ""
+          disabled: false
+    headers:
+      - name: Content-Type
+        value: application/x-www-form-urlencoded
+      - name: User-Agent
+        value: insomnia/12.4.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.keycloakBaseUrl }}/realms/myrealm/protocol/openid-connect/userinfo"
+    name: User info endpoint
+    meta:
+      id: req_56bcc38dbf694482b58eb21a52961f81
+      created: 1774820529189
+      modified: 1774892938409
+      isPrivate: false
+      description: ""
+      sortKey: -1774758190031
+    method: GET
+    body:
+      mimeType: application/x-www-form-urlencoded
+      params:
+        - name: ""
+          value: ""
+          description: ""
+          disabled: false
+    headers:
+      - name: Content-Type
+        value: application/x-www-form-urlencoded
+      - name: User-Agent
+        value: insomnia/12.4.0
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _.accessToken }}"
+      prefix: Bearer
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.resourceServerBaseUrl }}/cookie"
+    name: /cookie
+    meta:
+      id: req_10b96013540543ccb8400e1dfa4c7595
+      created: 1774824946420
+      modified: 1774892947470
+      isPrivate: false
+      description: ""
+      sortKey: -1774758189931
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.4.0
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      disabled: false
+      token: "{{ _.accessToken }}"
+      prefix: Bearer
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.resourceServerBaseUrl }}/cookie"
+    name: /cookie
+    meta:
+      id: req_53d25775040e48b98675e0e043f40504
+      created: 1774826058832
+      modified: 1774892942895
+      isPrivate: false
+      description: ""
+      sortKey: -1774758189981
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"type": "{% faker 'randomFirstName' %}"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.4.0
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      disabled: false
+      token: "{{ _.accessToken }}"
+      prefix: Bearer
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.resourceServerBaseUrl }}/cookie"
+    name: /cookie
+    meta:
+      id: req_6e44a8158c524b6fa84aeebcc90400ab
+      created: 1774826349204
+      modified: 1774892951674
+      isPrivate: false
+      description: ""
+      sortKey: -1774750701381.25
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/12.4.0
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      disabled: false
+      token: "{{ _.accessToken }}"
+      prefix: Bearer
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_6cad45ee04a162f2ca6924f5282b257c0c569703
+    created: 1774819587419
+    modified: 1774892985114
+  cookies:
+    - id: e302c49c-e509-4e86-b5ad-ccb4d05eb98c
+      key: AUTH_SESSION_ID
+      value: REDACTED
+      domain: localhost
+      path: /realms/myrealm/
+      secure: true
+      httpOnly: true
+      extensions:
+        - Version=1
+      hostOnly: true
+    - id: ed48f7dd-e433-4afb-94a7-262263b5fb73
+      key: KC_AUTH_SESSION_HASH
+      value: REDACTED
+      domain: localhost
+      path: /realms/myrealm/
+      secure: true
+      httpOnly: false
+      extensions:
+        - Version=1
+      hostOnly: true
+    - id: 97b56163-22be-4da6-af2b-d9eb5301c2bc
+      key: KC_RESTART
+      value: ""
+      domain: localhost
+      path: /realms/myrealm/
+      secure: false
+      httpOnly: false
+      extensions:
+        - Version=1
+      hostOnly: true
+    - id: 265847d2-5306-4e30-acb9-2c5afa14f583
+      key: JSESSIONID
+      value: REDACTED
+      domain: localhost
+      path: /
+      secure: false
+      httpOnly: true
+      hostOnly: true
+environments:
+  name: Base Environment
+  meta:
+    id: env_6cad45ee04a162f2ca6924f5282b257c0c569703
+    created: 1774819587419
+    modified: 1774893058744
+    isPrivate: false
+  data:
+    keycloakBaseUrl: localhost:9000
+    resourceServerBaseUrl: localhost:8080
+    username: ""
+    password: ""
+    accessToken: ""
+    refreshToken: ""
