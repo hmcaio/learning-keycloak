@@ -95,7 +95,17 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+					<image>
+						<name>${project.artifactId}:${project.version}</name>
+					</image>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>build-image-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

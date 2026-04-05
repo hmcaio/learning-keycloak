@@ -10,6 +10,20 @@ services:
       - keycloak_data:/opt/keycloak/data
     command:
       - "start-dev"
+    networks:
+      - backend
+
+  oauth2-resource-server:
+    image: oauth2-resource-server:0.0.1-SNAPSHOT
+    ports:
+      - "8080:8080"
+    depends_on:
+      - keycloak
+    networks:
+      - backend
 
 volumes:
   keycloak_data:
+
+networks:
+  backend:

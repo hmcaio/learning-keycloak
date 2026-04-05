@@ -2,6 +2,28 @@
 
 Project for learning Keycloak and OAuth2.
 
+# Running
+
+## Local
+
+When running Keycloak via Docker Compose and the Spring Boot app locally, the token can be generated using the Insomnia collection.
+
+## Docker
+
+When running both Keycloak and the Spring Boot app using Docker Compose, the token generated via Insomnia will not work, because the iss claim in the generated token ("http://localhost:9000/realms/myrealm") will not be accepted by Keycloak.  
+You need to get the token from inside the keycloak container, so that the iss will be matching ("http://keycloak:8080/realms/myrealm"):
+```shell
+curl --request POST \
+    --url http://keycloak:8080/realms/myrealm/protocol/openid-connect/token \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --header 'User-Agent: insomnia/12.4.0' \
+    --cookie JSESSIONID=REDACTED \
+    --data client_id=myclient \
+    --data grant_type=password \
+    --data username=<youruserhere> \
+    --data password=<yourpasswordhere>
+```
+
 # Versions
 
 | Tool        | Version |
@@ -10,7 +32,6 @@ Project for learning Keycloak and OAuth2.
 | Spring Boot | 4.0.5   |
 | Keycloak    | 26.5.6  |
 |             |         |
-
 
 # References
 
