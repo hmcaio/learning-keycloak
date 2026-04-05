@@ -14,7 +14,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) {
         httpSecurity
                 .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers(HttpMethod.GET, "/cookies").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/cookie").permitAll()
                         .anyRequest().authenticated()
                 ).oauth2ResourceServer((oauth2) -> oauth2
                         .jwt(Customizer.withDefaults())

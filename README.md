@@ -20,3 +20,4 @@ Project for learning Keycloak and OAuth2.
 - [Customizing the Login Page for Keycloak](https://www.baeldung.com/keycloak-custom-login-page)
 - [Add Users to Keycloak realm with Spring Boot and perform various operations.](https://medium.com/@d.navle95/add-users-to-keycloak-realm-with-spring-boot-and-perform-various-operations-879529ff7a9f)
 - [Retrieve User Information in Spring Security](https://www.baeldung.com/get-user-in-spring-security)
+- [Spring Security Docs](https://docs.spring.io/spring-security/reference/index.html)
