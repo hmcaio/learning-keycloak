@@ -17,7 +17,6 @@ curl --request POST \
     --url http://keycloak:8080/realms/myrealm/protocol/openid-connect/token \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'User-Agent: insomnia/12.4.0' \
-    --cookie JSESSIONID=REDACTED \
     --data client_id=myclient \
     --data grant_type=password \
     --data username=<youruserhere> \

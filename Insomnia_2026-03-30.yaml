@@ -283,46 +283,7 @@ cookieJar:
   meta:
     id: jar_6cad45ee04a162f2ca6924f5282b257c0c569703
     created: 1774819587419
-    modified: 1774892985114
-  cookies:
-    - id: e302c49c-e509-4e86-b5ad-ccb4d05eb98c
-      key: AUTH_SESSION_ID
-      value: REDACTED
-      domain: localhost
-      path: /realms/myrealm/
-      secure: true
-      httpOnly: true
-      extensions:
-        - Version=1
-      hostOnly: true
-    - id: ed48f7dd-e433-4afb-94a7-262263b5fb73
-      key: KC_AUTH_SESSION_HASH
-      value: REDACTED
-      domain: localhost
-      path: /realms/myrealm/
-      secure: true
-      httpOnly: false
-      extensions:
-        - Version=1
-      hostOnly: true
-    - id: 97b56163-22be-4da6-af2b-d9eb5301c2bc
-      key: KC_RESTART
-      value: ""
-      domain: localhost
-      path: /realms/myrealm/
-      secure: false
-      httpOnly: false
-      extensions:
-        - Version=1
-      hostOnly: true
-    - id: 265847d2-5306-4e30-acb9-2c5afa14f583
-      key: JSESSIONID
-      value: REDACTED
-      domain: localhost
-      path: /
-      secure: false
-      httpOnly: true
-      hostOnly: true
+  cookies: []
 environments:
   name: Base Environment
   meta:
